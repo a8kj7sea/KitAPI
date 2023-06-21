@@ -1,0 +1,17 @@
+Options:
+  KitCommand: false # That enable/disable command allow you to get kit `/kit`
+  JoinEvent: false # Give the kit to player when join
+  AutoArmor: true # auto wear armor !
+  
+JoinEvent: 
+  Permission: true
+  KitPermission: "kit.join.grant"
+  
+KitCommand: 
+  Command: "MyKitNowGiveMeYouDontKnowMe"
+  Permission: true
+  KitPermission: "kit.join.command"
+  
+  
+
+  

@@ -1,0 +1,5 @@
+name: _2wKit
+main: dev.sanhak.kit.main.Main
+version: 0.1
+commands:
+  2wkit:
