@@ -2,7 +2,7 @@ package dev.sanhak.kit.configuration.impl;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
-public interface Impl {
+public interface IConfiguration {
 
 	void save();
 
