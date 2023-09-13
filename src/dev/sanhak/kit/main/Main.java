@@ -6,11 +6,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import dev.sanhak.kit.api.KitAPI;
 import dev.sanhak.kit.command.Commands;
-import dev.sanhak.kit.configuration.KitConfiguration;
-import dev.sanhak.kit.configuration.SettingsConfiguration;
+import dev.sanhak.kit.configuration.impl.KitConfiguration;
+import dev.sanhak.kit.configuration.impl.SettingsConfiguration;
 import dev.sanhak.kit.listener.PlayerCommandPreprocessListener;
 import dev.sanhak.kit.listener.PlayerJoinListener;
-import dev.sanhak.kit.updater.UpdateChecker;
 
 public class Main extends JavaPlugin {
 
@@ -21,7 +20,7 @@ public class Main extends JavaPlugin {
 	private static FileConfiguration settingsFileConfiguration;
 
 	private static Main instance;
-	public String prefix = "§8\ufe33 §e2wKit §8\ufe33§r ";
+	public String prefix = "ï¿½8\ufe33 ï¿½e2wKit ï¿½8\ufe33ï¿½r ";
 
 	@Override
 	public void onEnable() {
@@ -40,28 +39,16 @@ public class Main extends JavaPlugin {
 
 		if (Main.getSettingsFileConfiguration().getBoolean("Options.JoinEvent")) {
 			getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
-			Bukkit.getConsoleSender().sendMessage(prefix + "§a§lSuccessfully enabled join kit event !");
+			Bukkit.getConsoleSender().sendMessage(prefix + "ï¿½aï¿½lSuccessfully enabled join kit event !");
 		}
 
 		if (Main.getSettingsFileConfiguration().getBoolean("Options.KitCommand")) {
 			getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
-			Bukkit.getConsoleSender().sendMessage(prefix + "§a§lSuccessfully enabled Kit command !");
+			Bukkit.getConsoleSender().sendMessage(prefix + "ï¿½aï¿½lSuccessfully enabled Kit command !");
 		}
 
-		Bukkit.getConsoleSender().sendMessage(prefix + "§a§lSuccessfully enabled plugin !");
+		Bukkit.getConsoleSender().sendMessage(prefix + "ï¿½aï¿½lSuccessfully enabled plugin !");
 
-		checker();
-	}
-
-	
-	void checker() {
-		new UpdateChecker(this, 12345).getVersion(version -> {
-			if (this.getDescription().getVersion().equals(version)) {
-				getLogger().info("There is not a new update available.");
-			} else {
-				getLogger().info("There is a new update available.");
-			}
-		});
 	}
 
 	public static Main getInstance() {
